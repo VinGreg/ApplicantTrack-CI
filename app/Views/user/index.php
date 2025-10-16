@@ -20,7 +20,6 @@
         <thead>
             <tr>
                 <th>Username</th>
-                <!-- Kolom Role Dihapus -->
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -30,14 +29,9 @@
                 <td><?php echo $u['username']; ?></td>
                 <td>
                     <a href="<?php echo base_url('user/edit/'.$u['id_user']); ?>" class="btn btn-warning btn-sm me-2">Edit</a>
-                    
-                    <!-- Tombol Delete menggunakan FORM POST dengan method spoofing -->
                     <form action="<?php echo base_url('user/delete/'.$u['id_user']); ?>" method="post" class="d-inline" 
                           onsubmit="return confirm('Apakah Anda yakin ingin menghapus user <?php echo $u['username']; ?>?');">
-                        
-                        <!-- Ini adalah method spoofing untuk CodeIgniter 4 -->
                         <input type="hidden" name="_method" value="DELETE"> 
-                        
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                     </form>
                 </td>

@@ -8,22 +8,15 @@
 </head>
 <body>
 <div class="container mt-5">
-    
-    <!-- Header dan Sapaan -->
     <div class="p-4 bg-light rounded-3 shadow-sm mb-4">
-        <!-- Menggunakan session()->get() untuk memastikan username tampil -->
         <h1 class="display-5 fw-bold">Selamat Datang, <?php echo htmlspecialchars(session()->get('username')); ?>!</h1>
         <p class="fs-5 text-muted">Aplikasi ApplicantTrack</p>
-        
-        <!-- BAGIAN DESKRIPSI STATIS BARU -->
         <hr class="my-3">
         <p>
             **ApplicantTrack** adalah sistem manajemen pelamar sederhana yang dirancang untuk membantu Anda melacak, mengelola, dan menilai kandidat yang mendaftar. Gunakan menu navigasi di bawah ini untuk mengakses data pelamar dan mengelola pengguna sistem.
         </p>
-        <!-- Akhir BAGIAN DESKRIPSI STATIS BARU -->
     </div>
 
-    <!-- Tombol Navigasi -->
     <div class="mb-5 d-flex gap-2">
         <a href="<?php echo base_url('pelamar'); ?>" class="btn btn-primary btn-lg shadow-sm"><i class="fas fa-users me-2"></i>Data Pelamar</a>
         

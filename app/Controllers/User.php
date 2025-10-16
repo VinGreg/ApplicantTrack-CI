@@ -31,7 +31,6 @@ class User extends Controller
                 'role' => $this->request->getPost('role'),
             ]);
             
-            // Tambahkan flash data sukses setelah create
             session()->setFlashdata('success', 'User baru berhasil ditambahkan.');
             
             return redirect()->to('/user');
@@ -48,7 +47,6 @@ class User extends Controller
         $model = new UserModel();
         $data['user'] = $model->find($id);
         
-        // Cek jika user tidak ditemukan
         if (!$data['user']) {
             session()->setFlashdata('error', 'User tidak ditemukan.');
             return redirect()->to('/user');
@@ -65,7 +63,6 @@ class User extends Controller
             }
             $model->update($id, $updateData);
             
-            // Tambahkan flash data sukses setelah edit
             session()->setFlashdata('success', 'Data user berhasil diperbarui.');
             
             return redirect()->to('/user');
@@ -73,10 +70,6 @@ class User extends Controller
         return view('user/edit', $data);
     }
 
-    /**
-     * Menghapus data user berdasarkan ID.
-     * Menggunakan Model CI4 untuk metode DELETE.
-     */
     public function delete($id)
     {
         if (session()->get('role') !== 'superuser') {
@@ -85,21 +78,16 @@ class User extends Controller
         
         $model = new UserModel();
         
-        // Cari data user sebelum dihapus untuk mendapatkan username (untuk pesan)
         $user = $model->find($id);
 
         if ($user) {
-            // Lakukan penghapusan
             $model->delete($id);
-            // Set pesan sukses
             session()->setFlashdata('success', 'User ' . $user['username'] . ' berhasil dihapus.');
         } else {
-            // Jika user tidak ditemukan
             session()->setFlashdata('error', 'User tidak ditemukan atau sudah dihapus.');
         }
 
         return redirect()->to('/user');
     }
     
-    // Fungsi public function assignRole($id) telah dihapus dari sini.
 }

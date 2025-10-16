@@ -1,4 +1,0 @@
-- [x] Update PelamarModel: Tambahkan method getJumlahPelamar() untuk query count(*) dari tabel pelamar.
-- [x] Update Dashboard controller: Di method index(), panggil method dari model dan pass data ke view.
-- [x] Update Dashboard view: Tambahkan elemen untuk menampilkan jumlah pelamar.
-- [x] Test dashboard untuk memastikan jumlah pelamar ditampilkan dengan benar.
